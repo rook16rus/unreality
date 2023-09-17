@@ -1,0 +1,73 @@
+.header {
+  padding: 4rem 0;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 47.8rem;
+    height: 2.5rem;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__address, &__schedule, &__phone {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1.2rem;
+
+    font: var(--text-t6);
+
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+  }
+
+  &__address {
+    max-width: 14rem;
+  }
+
+  &__schedule {
+    gap: 2.2rem;
+    max-width: 20rem;
+  }
+
+  &__socials {
+    display: flex;
+    margin-right: -1.8rem;
+  }
+
+  &__socials-item {
+    margin-right: 1.8rem;
+
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+  }
+
+  &__phone-content, &__schedule-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__phone-number {
+    font-weight: var(--bold);
+    text-align: right;
+  }
+
+  &__phone-link {
+    color: var(--primary-color);
+    text-decoration: dashed;
+    text-underline-offset: 0.5rem;
+    text-align: right;
+  }
+}

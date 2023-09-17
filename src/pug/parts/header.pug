@@ -1,0 +1,41 @@
+-
+  const socials = [
+    {
+      link: "#",
+      icon: "socials-icon-1"
+    },
+    {
+      link: "#",
+      icon: "socials-icon-2"
+    },
+    {
+      link: "#",
+      icon: "socials-icon-3"
+    },
+  ]
+
+header.header
+  .container
+    .header__wrapper
+      .header__logo
+        +icon-multi("logo")
+      address.header__address
+        +icon-multi("address-icon")
+        span г. Казань, ул. Тукая, 84
+      .header__schedule
+        +icon-multi("ghost-icon")
+        .header__schedule-content
+          span Пн-Пт: 09:00 - 23.00
+          span Сб-Вс:  10:00 - 02.00
+      ul.header__socials
+        for item in socials
+          li.header__socials-item
+            a.header__socials-link(href=item.link)
+              +icon-multi(item.icon)
+      .header__phone
+        +icon-multi("phone-icon")
+        .header__phone-content
+          span.header__phone-number
+            | 8 (800) 000-00-00
+          a.header__phone-link(href="tel:88000000000")
+            | Заказать звонок
