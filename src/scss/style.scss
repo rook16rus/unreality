@@ -1,0 +1,87 @@
+@import "./helpers/**/*";
+/* stylelint-disable no-invalid-position-at-import-rule */
+:root {
+  /* Colors */
+  --primary-color: #FF00A1;
+  --secondary-color: #FF7D04;
+  --tertiary-color: #04DEE7;
+  --white-color: #FFFFFF;
+
+
+  /* Layout containers */
+  --max-container-width: 150rem;
+  --content-padding: 5rem;
+
+  /* Font Family */
+  --main-ff: 'Tektur', sans-serif;
+
+  /* Font Weight */
+  --bold: 700;
+  --regular: 400;
+
+  /* Text */
+  --text-t1: var(--regular) 3rem/normal var(--main-ff);
+  --text-t2: var(--regular) 2.4rem/133% var(--main-ff);
+  --text-t3: var(--regular) 2rem/normal var(--main-ff);
+  --text-t4: var(--regular) 1.8rem/144% var(--main-ff);
+  --text-t5: var(--regular) 1.6rem/130% var(--main-ff);
+
+  /* Titles */
+  --title-h1: var(--bold) 6.4rem/130% var(--main-ff);
+  --title-h2: var(--bold) 3.6rem/130% var(--main-ff);
+  --title-h3: var(--bold) 1.8rem/138% var(--main-ff);
+}
+
+@include mq('custom', 'max', 1024) {
+  :root {
+    /* Layout containers */
+    --content-padding: 3rem;
+
+    /* Text */
+    --text-t1: var(--regular) 3rem/normal var(--main-ff);
+    --text-t2: var(--regular) 2.4rem/133% var(--main-ff);
+    --text-t3: var(--regular) 2rem/normal var(--main-ff);
+    --text-t4: var(--regular) 1.8rem/144% var(--main-ff);
+    --text-t5: var(--regular) 1.6rem/130% var(--main-ff);
+
+    /* Titles */
+    --title-h1: var(--bold) 6.4rem/130% var(--main-ff);
+    --title-h2: var(--bold) 3.6rem/130% var(--main-ff);
+    --title-h3: var(--bold) 1.8rem/138% var(--main-ff);
+  }
+}
+
+@include mq('custom', 'max', 640) {
+  :root {
+    /* Layout containers */
+    --content-padding: 2rem;
+
+    /* Text */
+    --text-t1: var(--regular) 3rem/normal var(--main-ff);
+    --text-t2: var(--regular) 2.4rem/133% var(--main-ff);
+    --text-t3: var(--regular) 2rem/normal var(--main-ff);
+    --text-t4: var(--regular) 1.8rem/144% var(--main-ff);
+    --text-t5: var(--regular) 1.6rem/130% var(--main-ff);
+
+    /* Titles */
+    --title-h1: var(--bold) 6.4rem/130% var(--main-ff);
+    --title-h2: var(--bold) 3.6rem/130% var(--main-ff);
+    --title-h3: var(--bold) 1.8rem/138% var(--main-ff);
+  }
+
+}
+
+$minWidth: 360;
+$maxWidth: 1920; // Ширина макета
+$base-transition-time: 0.3s;
+$base-transition-easing: ease;
+
+$overlay-color: rgba(0, 0, 0, 0.5);
+
+$modal-bg-color: white;
+
+@import "./vendor/**/*";
+@import "./settings/**/*";
+@import "./UI/**/*";
+@import "./blocks/**/*";
+@import "./pages/**/*";

@@ -1,0 +1,39 @@
+stages:
+    - build
+    - deploy
+
+Build:
+    stage: build
+    cache:
+        paths:
+            - node_modules/
+    image: node:16.14.2
+    only:
+        - main
+    tags:
+        - global_stage
+    script:
+        - npm ci
+        - npm run build:prod
+    artifacts:
+        paths:
+            - build/
+
+Deploy:
+    stage: deploy
+    image: node:16.14.2
+    dependencies:
+        - Build
+    only:
+      - main
+    tags:
+        - stage
+    before_script:
+        - 'which ssh-agent || ( apt-get install -qq openssh-client )'
+        - eval $(ssh-agent -s)
+        - ssh-add <(echo "$SSH_PRIVATE_KEY")
+        - mkdir -p ~/.ssh
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+    script:
+        - scp -r ./build cp05609@87.249.43.162:/home/c/cp05609/ifellow/public_html/local/static

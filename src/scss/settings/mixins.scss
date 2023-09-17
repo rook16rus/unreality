@@ -1,0 +1,125 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin customScrollbar {
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+    background-color: var(--color-grey-300);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-grey-600);
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--color-grey-300);
+  }
+}
+
+@mixin noScrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar * {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+
+@mixin maxSizeText($size) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: $size;
+  -webkit-box-orient: vertical;
+}
+
+@mixin imageWrapper($width: 16, $height: 9) {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(($height / $width) * 100%);
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+}
+
+// Адаптивный шрифт
+@mixin clamp($mobile, $desktop) {
+  $diff: $desktop - $mobile;
+  $maxWidth: $maxWidth - $minWidth;
+  font-size: calc(#{$mobile + px} + #{$diff} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+}
+
+// Стандартная плавность
+@mixin base-transition($target) {
+  transition: $target $base-transition-time $base-transition-easing;
+}
+
+@mixin noHighlight() {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@mixin transitionfix {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0)
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}

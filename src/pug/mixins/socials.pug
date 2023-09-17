@@ -1,0 +1,6 @@
+mixin socials(array)
+  ul.socials
+    for item in array
+      li.socials__item
+        a.socials__link.link(href="#")
+          +imgLazy(item, "Иконка социальной сети")
